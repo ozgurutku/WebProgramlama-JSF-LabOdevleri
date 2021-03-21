@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#Giris.xhtml" PATH="/Giris.xhtml"
+  SHAPE="136,112,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Giris.xhtml:0" NAME="item"
+   PATH="/Giris.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="dogru::#Students.xhtml" NAME="output"
+    PATH="/Students.xhtml" TARGET="rules:#Students.xhtml" TITLE="dogru" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="hata::#Hata.xhtml" NAME="output1"
+    PATH="/Hata.xhtml" TARGET="rules:#Hata.xhtml" TITLE="hata" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#Hata.xhtml" PATH="/Hata.xhtml"
+  SHAPE="200,264,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Hata.xhtml:0" NAME="item" PATH="/Hata.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="geri::#Giris.xhtml" NAME="output"
+    PATH="/Giris.xhtml" TARGET="rules:#Giris.xhtml" TITLE="geri" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#Students.xhtml" PATH="/Students.xhtml"
+  SHAPE="400,136,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Students.xhtml:0" NAME="item"
+   PATH="/Students.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="geri::#Giris.xhtml" NAME="output"
+    PATH="/Giris.xhtml" TARGET="rules:#Giris.xhtml" TITLE="geri" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+</h:head>
+<body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="2">
+			    Ad:<h:inputText value="#{studentsView.students.stuName}" />
+    			Soyad:<h:inputText value="#{studentsView.students.stuSurname}" />
+    			Dogum Tarihi:<h:inputText value="#{studentsView.students.stuDOB}">
+					<f:convertDateTime pattern="dd.MM.yyyy" />
+				</h:inputText>
+    			Kaydolacağı kurs:<h:inputText
+					value="#{studentsView.students.stuCourse}" />
+    			Kayıt ücreti:<h:selectOneRadio
+					value="#{studentsView.students.paidTutionFee}">
+					<f:selectItem itemValue="true" itemLabel="Ödendi" />
+					<f:selectItem itemValue="false" itemLabel="Ödenmedi" />
+				</h:selectOneRadio>
+				</h:panelGrid>
+				<h:commandButton action="#{studentsView.kaydet()}" value="Kaydet" /> &nbsp;&nbsp;
+				<h:commandButton action="#{studentsView.guncelle()}" value="Güncelle"/>&nbsp;&nbsp;
+				<h:commandButton action="geri" value="Geri Dön" />
+			<p:dataTable value="#{studentsView.kayitlariGetir()}" var="student">
+				<f:facet name="header">Kayıt Listesi</f:facet>
+				<p:column>
+					<f:facet name="header">Seç</f:facet>
+					<h:commandLink value="Seç">
+					<f:setPropertyActionListener value="#{student}" target="#{studentsView.students}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Sil</f:facet>
+					<h:commandLink action="#{studentsView.sil()}" value="Sil">
+					<f:setPropertyActionListener value="#{student}" target="#{studentsView.students}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</p:column>
+				<p:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{student.stuID}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Ad</f:facet>
+					<h:outputText value="#{student.stuName}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Soyad</f:facet>
+					<h:outputText value="#{student.stuSurname}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Doğum tarihi</f:facet>
+					<h:outputText value="#{student.stuDOB}">
+					<f:convertDateTime pattern="dd.MM.yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Kaydolacağı Kurs</f:facet>
+					<h:outputText value="#{student.stuCourse}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Ücreti ödenmiş mi</f:facet>
+					<h:outputText value="#{student.paidTutionFee}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</f:view>
+</body>
+</html>
